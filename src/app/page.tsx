@@ -53,7 +53,7 @@ const Page = () => {
           );
         })}
       </Header>
-      <Home element={menus[0].observe} />
+      <Home element={menus[0].observe} onClick={() => onScroll(menus[1].observe, 'ABOUT ME')} />
       <AboutMe element={menus[1].observe} />
       <Skill element={menus[2].observe} />
       <Project element={menus[3].observe} />
