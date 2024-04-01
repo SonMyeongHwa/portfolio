@@ -14,7 +14,7 @@ const Home = ({ element, onClick }: Props) => {
       <Title>
         MYEONGHWA’S
         <br />
-        PORTPOLIO
+        PORTFOLIO
       </Title>
       <Button onClick={onClick}>↓ MORE ↓</Button>
     </Container>
