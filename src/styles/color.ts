@@ -7,5 +7,6 @@ export const color = {
   },
   color: {
     lightPurple: '#E1D2FF',
+    darkPurple: '#5C005C',
   },
 };
