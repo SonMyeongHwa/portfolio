@@ -2,44 +2,48 @@
 
 import ProjectDetail from '@/components/ProjectDetail/ProjectDetail';
 import styled from '@emotion/styled';
+import { color } from '@/styles/color';
+import Image from 'next/image';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import { projects } from '@/util/data/projectData';
 
 type Props = {
   element: any;
 };
 
-const projects = [
-  {
-    name: '사이드 고',
-    type: 'Team',
-    date: '2024.02 ~ ing',
-    image: 'sidego_main',
-    githubLink: 'https://github.com/SonMyeongHwa',
-    webLink: '',
-    introduction:
-      '사이드 프로젝트 플랫폼을 개발하며 사이드 프로젝트를 진행하는 개발자들이 중간에 이탈하지 않게 보증금을 받고 지원하는 역할을 합니다. 또한, 각 팀이 약속을 지키지 못하면 보증금이 다른 팀원들에게 돌아가는 플랫폼을 만듭니다. ',
-    func: '사이드 프로젝트 플랫폼을 개발하며 사이드 프로젝트를 진행하는 개발자들이 중간에 이탈하지 않게 보증금을 받고 지원하는 역할을 합니다. 또한, 각 팀이 약속을 지키지 못하면 보증금이 다른 팀원들에게 돌아가는 플랫폼을 만듭니다. ',
-    skill: 'Next.js, TypeScript, Styled-Components, emotion, Axios, Zustand',
-  },
-];
-
 const Project = ({ element }: Props) => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    nextArrow: <StyledImage src={'/images/icon/right_arrow.svg'} alt="right_arrow" width={20} height={20} />,
+    prevArrow: <StyledImage src={'/images/icon/left_arrow.svg'} alt="left_arrow" width={20} height={20} />,
+  };
+
   return (
     <Container ref={element}>
-      <h2 className="title">PROJECT</h2>
-      {projects.map((project) => (
-        <ProjectDetail
-          key={project.name}
-          name={project.name}
-          type={project.type}
-          date={project.date}
-          image={project.image}
-          githubLink={project.githubLink}
-          webLink={project.webLink}
-          introduction={project.introduction}
-          func={project.func}
-          skill={project.skill}
-        />
-      ))}
+      <div className="wrap">
+        <h2 className="title">PROJECT</h2>
+        <Slider {...settings}>
+          {projects.map((project) => (
+            <ProjectDetail
+              key={project.name}
+              name={project.name}
+              type={project.type}
+              date={project.date}
+              image={project.image}
+              githubLink={project.githubLink}
+              webLink={project.webLink}
+              introduction={project.introduction}
+              func={project.func}
+              skill={project.skill}
+            />
+          ))}
+        </Slider>
+      </div>
     </Container>
   );
 };
@@ -49,13 +53,12 @@ export default Project;
 const Container = styled.section`
   height: auto;
   box-sizing: border-box;
-  padding: 130px 100px;
+  padding: 130px 10px;
+`;
 
-  .title {
-    font-family: 'PressStart2P';
-    font-size: 30px;
-    text-decoration: underline;
-    text-underline-position: under;
-    margin-bottom: 80px;
+const StyledImage = styled(Image)`
+  &:hover {
+    background: ${color.gray.gray1};
+    border-radius: 50%;
   }
 `;
