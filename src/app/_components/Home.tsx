@@ -45,9 +45,11 @@ const Title = styled.h1`
   @keyframes motion {
     0% {
       margin-top: 0px;
+      margin-bottom: 10px;
     }
     100% {
       margin-top: 10px;
+      margin-bottom: 0px;
     }
   }
 `;
@@ -59,19 +61,9 @@ const Button = styled.div`
   border: 5px solid black;
   border-radius: 20px;
   cursor: pointer;
-  animation: button 0.7s linear 0s infinite alternate;
 
   &:hover {
     background: ${color.gray.gray2};
     transition: all 0.3s ease;
-  }
-
-  @keyframes button {
-    0% {
-      margin-top: 10px;
-    }
-    100% {
-      margin-top: 0px;
-    }
   }
 `;
