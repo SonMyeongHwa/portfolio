@@ -78,13 +78,15 @@ const Container = styled.div`
     text-decoration: underline;
     text-underline-position: under;
     text-align: center;
-    margin-bottom: 80px;
   }
 
   .wrap {
     margin: 0 auto;
     max-width: 1100px;
     padding: 0px 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
   }
 
   .header {
