@@ -9,14 +9,20 @@
   font-weight: 500;
   src: url('/fonts/NanumGothic-Bold.ttf') format('truetype');
 }
+
 @font-face {
   font-family: 'NanumGothic';
   font-weight: 600;
   src: url('/fonts/NanumGothic-ExtraBold.ttf') format('truetype');
 }
 
-body,
-textarea,
-input {
+@font-face {
+  font-family: 'PressStart2P';
+  font-weight: 400;
+  src: url('/fonts/PressStart2P-Regular.ttf') format('truetype');
+}
+
+body {
   font-family: 'NanumGothic';
+  font-size: 20px;
 }
