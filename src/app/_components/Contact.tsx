@@ -1,9 +1,8 @@
 'use client';
 
+import IconCard from '@/components/IconCard/IconCard';
 import { color } from '@/styles/color';
 import styled from '@emotion/styled';
-import Image from 'next/image';
-import Link from 'next/link';
 
 type Props = {
   element: any;
@@ -14,20 +13,12 @@ const Contact = ({ element }: Props) => {
     <Container ref={element}>
       <div className="wrap">
         <h2 className="title">CONTACT</h2>
-        <div>끝까지 읽어주셔서 감사합니다 :-)</div>
+        <div className="content">끝까지 읽어주셔서 감사합니다 :-)</div>
         <div className="icon-wrap">
-          <div className="icon">
-            <StyledLink href="https://github.com/SonMyeongHwa" target="_blank">
-              <Image src={'/images/icon/github.svg'} alt="github" width={50} height={50} />
-            </StyledLink>
-            <span className="name">Github</span>
-          </div>
-          <div className="icon">
-            <StyledLink href="https://velog.io/@smh0116" target="_blank">
-              <Image src={'/images/icon/velog.svg'} alt="velog" width={50} height={50} />
-            </StyledLink>
-            <span className="name">Blog</span>
-          </div>
+          <IconCard link="https://github.com/SonMyeongHwa" path="github" name="Github" />
+          <IconCard link="https://velog.io/@smh0116" path="velog" name="Blog" />
+          <IconCard link="mailto:myeonghwa0116@gmail.com" path="gmail" name="Gmail" />
+          <IconCard link="https://" path="notion" name="Notion" />
         </div>
         <div className="copyright">ⓒ 2024. Myeonghwa All rights reserved.</div>
       </div>
@@ -50,6 +41,10 @@ const Container = styled.section`
     justify-content: center;
   }
 
+  .content {
+    margin-top: 80px;
+  }
+
   .icon-wrap {
     flex: 1;
     display: flex;
@@ -59,30 +54,8 @@ const Container = styled.section`
     margin: 70px 0 100px 0;
   }
 
-  .icon {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-
-    .name {
-      font-size: 12px;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-  }
-
   .copyright {
     color: ${color.gray.gray3};
     font-size: 16px;
-  }
-`;
-
-const StyledLink = styled(Link)`
-  &:hover {
-    + .name {
-      opacity: 1;
-      transition: opacity 0.3s ease;
-    }
   }
 `;
