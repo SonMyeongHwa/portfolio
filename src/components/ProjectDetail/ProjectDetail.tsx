@@ -13,7 +13,7 @@ type Props = {
   githubLink: string;
   webLink?: string;
   introduction: string;
-  func: string;
+  func?: string;
   skill: string;
 };
 
@@ -48,10 +48,12 @@ const ProjectDetail = ({ name, type, date, image, githubLink, webLink, introduct
           <span className="subtitle">프로젝트 소개</span>
           <div className="content">{introduction}</div>
         </div>
-        <div>
-          <span className="subtitle">기능 구현</span>
-          <div className="content">{func}</div>
-        </div>
+        {func && (
+          <div>
+            <span className="subtitle">기능 구현</span>
+            <div className="content">{func}</div>
+          </div>
+        )}
         <div>
           <span className="subtitle">사용 스킬</span>
           <div className="content">{skill}</div>
@@ -66,6 +68,7 @@ export default ProjectDetail;
 const Container = styled.div`
   display: flex;
   gap: 50px;
+  margin: 0 10px 20px 10px;
 `;
 
 const LeftWrap = styled.div`
@@ -106,11 +109,13 @@ const StyledImage = styled(Image)`
 const RightWrap = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 20px;
+  line-height: 1.3;
 
   .subtitle {
     font-weight: bold;
-    background: linear-gradient(to top, #e1d2ff 60%, transparent 40%);
+    background: linear-gradient(to top, ${color.color.lightPurple} 60%, transparent 40%);
   }
 
   .content {
