@@ -14,35 +14,47 @@ type Props = {
 };
 
 const Project = ({ element }: Props) => {
+  const PrevArrow = (props: any) => {
+    const { className, onClick } = props;
+    return <StyledImage className={className} src={'/images/icon/left_arrow.svg'} alt="left_arrow" width={20} height={20} onClick={onClick} />;
+  };
+
+  const NextArrow = (props: any) => {
+    const { className, onClick } = props;
+    return <StyledImage className={className} src={'/images/icon/right_arrow.svg'} alt="right_arrow" width={20} height={20} onClick={onClick} />;
+  };
+
   const settings = {
     dots: true,
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
-    nextArrow: <StyledImage src={'/images/icon/right_arrow.svg'} alt="right_arrow" width={20} height={20} />,
-    prevArrow: <StyledImage src={'/images/icon/left_arrow.svg'} alt="left_arrow" width={20} height={20} />,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
   };
 
   return (
     <Container ref={element}>
       <div className="wrap">
         <h2 className="title">PROJECT</h2>
-        <Slider {...settings}>
-          {projects.map((project) => (
-            <ProjectDetail
-              key={project.name}
-              name={project.name}
-              type={project.type}
-              date={project.date}
-              image={project.image}
-              githubLink={project.githubLink}
-              webLink={project.webLink}
-              introduction={project.introduction}
-              func={project.func}
-              skill={project.skill}
-            />
-          ))}
-        </Slider>
+        <div className="sliderContainer">
+          <Slider {...settings}>
+            {projects.map((project) => (
+              <ProjectDetail
+                key={project.name}
+                name={project.name}
+                type={project.type}
+                date={project.date}
+                image={project.image}
+                githubLink={project.githubLink}
+                webLink={project.webLink}
+                introduction={project.introduction}
+                func={project.func}
+                skill={project.skill}
+              />
+            ))}
+          </Slider>
+        </div>
       </div>
     </Container>
   );
@@ -51,9 +63,16 @@ const Project = ({ element }: Props) => {
 export default Project;
 
 const Container = styled.section`
-  height: auto;
+  height: 100vh;
   box-sizing: border-box;
-  padding: 130px 10px;
+  padding: 130px 10px 0px 10px;
+
+  .sliderContainer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 `;
 
 const StyledImage = styled(Image)`
