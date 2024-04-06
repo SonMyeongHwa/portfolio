@@ -18,7 +18,7 @@ const Contact = ({ element }: Props) => {
           <IconCard link="https://github.com/SonMyeongHwa" path="github" name="Github" />
           <IconCard link="https://velog.io/@smh0116" path="velog" name="Blog" />
           <IconCard link="mailto:myeonghwa0116@gmail.com" path="gmail" name="Gmail" />
-          <IconCard link="https://" path="notion" name="Notion" />
+          <IconCard link="" path="notion" name="Notion" />
         </div>
         <div className="copyright">ⓒ 2024. Myeonghwa All rights reserved.</div>
       </div>
