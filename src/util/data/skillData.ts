@@ -2,12 +2,7 @@ export const skillMenus = ['Language', 'Front-end', 'Etc'];
 
 export const skills = [
   {
-    skill: 'HTML',
-    menu: skillMenus[0],
-    percent: 80,
-  },
-  {
-    skill: 'CSS',
+    skill: 'HTML / CSS',
     menu: skillMenus[0],
     percent: 75,
   },
